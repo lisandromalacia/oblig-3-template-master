@@ -3,6 +3,7 @@ package no.oslomet.cs.algdat.Oblig3;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Objects;
 import java.util.StringJoiner;
 
 public class SBinTre<T> {
@@ -83,11 +84,43 @@ public class SBinTre<T> {
     }
 
     public boolean leggInn(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        Objects.requireNonNull(verdi, "Null verdier ikke tillatt");
+
+
+
+        antall++;
+        endringer++;
+        return true;
+
+        /*throw new UnsupportedOperationException("Ikke kodet ennå!");*/
     }
 
     public boolean fjern(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        if (verdi == null){
+            return false;
+        }
+
+        Node<T> p = rot;
+        Node<T> q = null;
+
+        while (p != null){
+            int cmp = comp.compare(verdi, p.verdi);
+            if (cmp < 0){q = p; p=p.venstre;}
+            else if ( cmp > 0) { q = p; p=p.høyre}
+            else break;
+            }
+
+        if (p == null) {
+            return false;}
+
+        if (p.venstre == null || p.høyre == null){
+            Node
+        }
+
+
+
+        /*throw new UnsupportedOperationException("Ikke kodet ennå!");*/
+
     }
 
     public int fjernAlle(T verdi) {
@@ -95,8 +128,19 @@ public class SBinTre<T> {
     }
 
     public int antall(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
-    }
+        if (verdi == null) {
+            return 0;
+
+            }
+
+            Node<T> p = rot;
+            int teller = 0;
+
+
+            return teller++;
+
+            /* throw new UnsupportedOperationException("Ikke kodet ennå!");*/
+        }
 
     public void nullstill() {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
