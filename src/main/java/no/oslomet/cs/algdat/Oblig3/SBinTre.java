@@ -187,6 +187,7 @@ public class SBinTre<T> {
         if (!tom()){ //
             postordenRecursive(p, oppgave);
         }
+
     }
 
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) { // Kode for å utføre oppgaven
