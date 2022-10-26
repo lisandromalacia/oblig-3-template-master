@@ -141,7 +141,7 @@ public class SBinTre<T> {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
-    private static <T> Node<T> førstePostorden(Node<T> p) { // Ref kildekode bintre til kompendium har ikke oppgave nr, refererer ved link i readme.md
+    private static <T> Node<T> førstePostorden(Node<T> p) { // Ref kildekode bintre til kompendium har ikke oppgave nr, refererer ved link i readme.md + ref 5.1.7 g)
         while (true){  // Skriver while løkke mens den er true
             if (p.venstre != null){ // Hvis p.venstre ikke er lik null er p er lik p.venstre
                 p = p.venstre;
@@ -172,18 +172,30 @@ public class SBinTre<T> {
     }
 
     public void postorden(Oppgave<? super T> oppgave) {
+        Node<T> fpo = førstePostorden(rot); // Hjelpevariabel
 
-
+        oppgave.utførOppgave(fpo.verdi);
+        while (fpo.forelder != null){ // Hvis rot ikke er lik null
+         fpo = nestePostorden(fpo);
+         oppgave.utførOppgave(Objects.requireNonNull(fpo).verdi); // Her blir mengden printet ut og skifter til neste node
+        }
     }
 
     public void postordenRecursive(Oppgave<? super T> oppgave) {
+        Node<T> p = rot; // Hjelpevariabel
 
+        if (!tom()){ //
+            postordenRecursive(p, oppgave);
+        }
     }
 
-    private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
-     if (p == null){ // Hvis p er lik null skal den returneres
+    private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) { // Kode for å utføre oppgaven
+        if (p == null){ // Hvis p er lik null skal den returneres
          return;
      }
+     postordenRecursive(p.venstre, oppgave);
+     postordenRecursive(p.høyre, oppgave);
+     oppgave.utførOppgave(p.verdi);
 
     }
 
