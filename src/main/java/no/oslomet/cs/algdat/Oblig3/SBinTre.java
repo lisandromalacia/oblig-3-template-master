@@ -81,7 +81,7 @@ public class SBinTre<T> {
 
         return antall == 0;
     }
-
+ // Oppgave 1
     public boolean leggInn(T verdi) { // Fulgt oppgave 5.2.3 a) i kompendiet
         Objects.requireNonNull(verdi, "Ikke lov med nullverdier");
 
@@ -119,7 +119,7 @@ public class SBinTre<T> {
     public int fjernAlle(T verdi) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
-
+// Oppgave 2
     public int antall(T verdi) { // Fulgt løsningsforslag til oppgave 2 i avsnitt 5.2.6 i kompendiet
         if (verdi == null) { // Hvis metoden ikke er i treet skal den
             return 0;} // Returnere 0
@@ -140,7 +140,7 @@ public class SBinTre<T> {
     public void nullstill() {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
-
+// Oppgave 3
     private static <T> Node<T> førstePostorden(Node<T> p) { // Ref kildekode bintre til kompendium har ikke oppgave nr, refererer ved link i readme.md + ref 5.1.7 g)
         while (true){  // Skriver while løkke mens den er true
             if (p.venstre != null){ // Hvis p.venstre ikke er lik null er p er lik p.venstre
@@ -170,15 +170,15 @@ public class SBinTre<T> {
 
         return førstePostorden(f.høyre); // Returnerer statement
     }
-
-    public void postorden(Oppgave<? super T> oppgave) {
+// Oppgave 4
+    public void postorden(Oppgave<? super T> oppgave) {  // Ref kildekode bintre til kompendium har ikke oppgave nr, refererer ved link i readme.md + ref 5.1.7 g)
         Node<T> fpo = førstePostorden(rot); // Hjelpevariabel
 
         oppgave.utførOppgave(fpo.verdi);
         while (fpo.forelder != null){ // Hvis rot ikke er lik null
          fpo = nestePostorden(fpo);
          oppgave.utførOppgave(Objects.requireNonNull(fpo).verdi); // Her blir mengden printet ut og skifter til neste node
-        }
+        } // Starter med å finne den første noden p i postorden til p blir null.
     }
 
     public void postordenRecursive(Oppgave<? super T> oppgave) {
