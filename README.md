@@ -16,3 +16,4 @@ Her gjorde jeg ganske likt som oppgaven og skrev while løkke med if setninger f
 
 I oppgave 4 fulgte jeg samme lenke som i oppgave 3) og oppgave 5.1.7 g) var også til hjelp. I postorden skrev jeg først en hjelpevariabel, så whileløkke for når førstepostorden ikke er lik null, og fulgte egentlig hva oppgaven spør om. I  postordenrecursive så hvis p er lik null skal dette statement returneres, også skrev jeg kode for å utføre oppgaven.
 
+Får ikke fikset gradle wrapper- jar for autograding. Får samme feilmelding at gradle is not executable, og at all checks have failed, men oppgave 1, 2, 3 og 4 skal være PASSED.
